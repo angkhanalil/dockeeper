@@ -18,8 +18,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  *
  * @author 92610
  */
-@Configuration
-@EnableWebSecurity
+//@Configuration
+//@EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
@@ -31,6 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .defaultSuccessUrl("/main")
                 .permitAll()
                 .and()
                 .logout()
@@ -49,7 +50,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .ldapAuthentication()
-                .userDnPatterns("uid={0}")
+                .userDnPatterns("uid={0},ou=user")
 //                .groupSearchBase("ou=user")
                 .contextSource()
                 .url("ldap://10.11.9.135:389/dc=wacoal,dc=co,dc=th");

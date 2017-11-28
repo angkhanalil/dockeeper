@@ -6,9 +6,12 @@
     </head>
 
     <body>
-       <div th:replace="fragments/header :: header-js" />
-        <h1 th:text="#{title}">Test </h1>
-        <h1>This is a main</h1>
        
+       <div th:replace="fragments/header :: header-js"></div>
+      <h1 th:text="#{title}" >this is a main</h1>
+      <h2>this is a main line 2</h2>
+       <h1 th:text="${emp.empId}" >this is a main</h1>
+      <h1 th:text="${emp.nameTh}" >this is a main</h1>
+       <h1 th:text="${emp.surnameTh}" >this is a main</h1>
     </body>
 </html>
